@@ -15,7 +15,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 try:
-    CON_STR = 'Srvr="127.0.0.1";Ref="trade 8.2";Usr="Шендер Е.Е.";Pwd="nupadyzo"'
+    CON_STR = 'Srvr="127.0.0.1";Ref="trade 8.2";Usr="user.";Pwd="pass"'
 
     v83 = win32com.client.Dispatch("V83.COMConnector").Connect(CON_STR)
 except Exception as e:
@@ -46,8 +46,8 @@ def StockPrice(date_):
     selectionPrice = queryFlowFunds.Execute().Choose()
     queryFlowFunds = None
 
-    conn = psycopg2.connect(dbname='server-test-pe-lab', user='postgreadmin',
-                            password='5112274', host='78.24.216.107', port=5433)
+    conn = psycopg2.connect(dbname='name_Bd', user='user_name',
+                                password='password', host='#.#.#.#', port=5433)
     with conn.cursor() as cursor:
         while selectionPrice.Next():
             cursor.execute('Select id_product From products WHERE articul = %s', [selectionPrice.Артикул])
@@ -82,8 +82,8 @@ def PriceWrite(date_):
     selectionPrice = queryFlowFunds.Execute().Choose()
     queryFlowFunds = None
 
-    conn = psycopg2.connect(dbname='server-test-pe-lab', user='postgreadmin',
-                            password='5112274', host='78.24.216.107', port=5433)
+    conn = psycopg2.connect(dbname='name_Bd', user='user_name',
+                                password='password', host='#.#.#.#', port=5433)
     with conn.cursor() as cursor:
         while selectionPrice.Next():
             cursor.execute('Select id_product From products WHERE articul = %s', [selectionPrice.Артикул])
@@ -128,8 +128,8 @@ def QuantityWrite(date_):
     selectionQuantity = queryFlowFunds.Execute().Choose()
     queryFlowFunds = None
 
-    conn = psycopg2.connect(dbname='server-test-pe-lab', user='postgreadmin',
-                            password='5112274', host='78.24.216.107', port=5433)
+    conn = psycopg2.connect(dbname='name_Bd', user='user_name',
+                                password='password', host='#.#.#.#', port=5433)
     with conn.cursor() as cursor:
 
         while selectionQuantity.Next():
@@ -182,8 +182,8 @@ def main(date_):
         selection = queryFlowFunds.Execute().Choose()
 
         queryFlowFunds = None
-        conn = psycopg2.connect(dbname='server-test-pe-lab', user='postgreadmin',
-                                password='5112274', host='78.24.216.107', port=5433)
+        conn = psycopg2.connect(dbname='name_Bd', user='user_name',
+                                password='password', host='#.#.#.#', port=5433)
         with conn.cursor() as cursor:
             while selection.Next():
 
